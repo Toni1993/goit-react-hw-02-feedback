@@ -34,7 +34,7 @@
 	"bugs": {
 		"url": "https://github.com/Toni1993/goit-react-hw-02-feedback/issues"
 	},
-	"homepage": "https://Toni1993.github.io/-goit-react-hw-02-feedback-",
+	"homepage": "https://Toni1993.github.io/goit-react-hw-02-feedback",
 	"eslintConfig": {
 		"extends": [
 			"react-app",

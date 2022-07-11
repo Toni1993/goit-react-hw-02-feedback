@@ -6,44 +6,35 @@ import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import { Box } from 'components/Box';
 
 class App extends Component {
-	constructor() {
-		super();
-		this.countTotalFeedback = this.countTotalFeedback.bind(this);
-		this.countPositiveFeedbackPercentage =
-			this.countPositiveFeedbackPercentage.bind(this);
-		this.onLeaveFeedback = this.onLeaveFeedback.bind(this);
-	}
-
 	state = {
 		good: 0,
 		neutral: 0,
 		bad: 0,
 	};
 
-	countTotalFeedback() {
+	countTotalFeedback = () => {
 		this.setState(state => {
 			const { good, neutral, bad } = state;
 			return {
 				total: good + neutral + bad,
 			};
 		});
-	}
+	};
 
-	countPositiveFeedbackPercentage() {
+	countPositiveFeedbackPercentage = () => {
 		this.setState(state => {
 			const { good, neutral, bad } = state;
 			return {
 				positivePercentage: Math.round((100 / (good + neutral + bad)) * good),
 			};
 		});
-	}
+	};
 
-	onLeaveFeedback(type) {
+	onLeaveFeedback = type => {
 		this.setState({ [type]: this.state[type] + 1 });
 		this.countTotalFeedback();
 		this.countPositiveFeedbackPercentage();
-		console.log(this.state.good);
-	}
+	};
 
 	render() {
 		const { good, neutral, bad, total, positivePercentage } = this.state;
